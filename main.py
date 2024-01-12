@@ -39,15 +39,15 @@ def callback(
     token = generate_jwt_token(payload, secret_key)
 
     # Публикация JWT токена в RabbitMQ
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
-    channel = connection.channel()
-    channel.basic_publish(
+    _connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+    _channel = connection.channel()
+    _channel.basic_publish(
         exchange='',
         routing_key='jwt_token_queue',
         body=token
     )
     print(token)
-    connection.close()
+    _connection.close()
 
 
 # Создание подключения к RabbitMQ
