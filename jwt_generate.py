@@ -2,8 +2,7 @@ import jwt
 
 
 # Генерация JWT токена
-def generate_jwt_token(player_id, secret_key):
-    payload = {"player_id": player_id}
+def generate_jwt_token(payload: dict, secret_key) -> str:
     token = jwt.encode(payload, secret_key, algorithm="HS256")
     return token
 

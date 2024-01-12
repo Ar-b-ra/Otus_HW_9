@@ -1,8 +1,8 @@
 import unittest
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
+class TestTokenGeneration(unittest.TestCase):
+    def test_token_generation(self):
         self.assertEqual(True, True)  # add assertion here
 
 
