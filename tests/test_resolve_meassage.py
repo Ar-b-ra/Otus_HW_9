@@ -18,7 +18,7 @@ class TestResolveMessage(unittest.TestCase):
 
     def test_create_session(self):
         result = self.obj.resolve_message(self.message)
-        self.assertEqual(1, self.obj.create_session(self.message["gamers_id"]))
+        self.assertEqual(result, 1)
 
     def test_check_rules(self):
         self.obj.create_session(self.message["gamers_id"])
@@ -29,7 +29,7 @@ class TestResolveMessage(unittest.TestCase):
         self.assertTrue(result)
 
     def tearDown(self):
-        pass
+        self.obj._sessions = {}
 
 
 if __name__ == "__main__":
